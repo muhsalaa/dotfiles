@@ -27,6 +27,13 @@ vim.keymap.set('n', 'x', '"_x', opts)
 vim.keymap.set('n', '<C-d>', '<C-d>zz', opts)
 vim.keymap.set('n', '<C-u>', '<C-u>zz', opts)
 
+-- copy line down
+-- normal
+vim.keymap.set('n', '<leader>d', ':t.<CR>', opts)
+
+-- visual
+vim.keymap.set('v', '<leader>d', ":t '><CR>gv", opts)
+
 -- Find and center
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
@@ -66,3 +73,59 @@ vim.keymap.set('n', '<leader>to', ':tabnew<CR>', opts) -- open new tab
 vim.keymap.set('n', '<leader>tx', ':tabclose<CR>', opts) -- close current tab
 vim.keymap.set('n', '<leader>tn', ':tabn<CR>', opts) --  go to next tab
 vim.keymap.set('n', '<leader>tp', ':tabp<CR>', opts) --  go to previous tab
+
+-- Toggle line wrapping
+vim.keymap.set('n', '<leader>lw', '<cmd>set wrap!<CR>', opts)
+
+-- Press jk fast to exit insert mode
+vim.keymap.set('i', 'jk', '<ESC>', opts)
+vim.keymap.set('i', 'kj', '<ESC>', opts)
+
+-- Stay in indent mode
+vim.keymap.set('v', '<', '<gv', opts)
+vim.keymap.set('v', '>', '>gv', opts)
+
+-- Move text up and down
+vim.keymap.set('v', '<M-Down>', ":m '>+1<CR>gv=gv", opts)
+vim.keymap.set('v', '<M-Up>',   ":m '<-2<CR>gv=gv", opts)
+vim.keymap.set('n', '<M-Down>', '<cmd>m .+1<CR>==', opts)
+vim.keymap.set('n', '<M-Up>',   '<cmd>m .-2<CR>==', opts)
+-- Keep last yanked when pasting
+vim.keymap.set('v', 'p', '"_dP', opts)
+
+-- Replace word under cursor
+vim.keymap.set('n', '<leader>j', '*``cgn', opts)
+
+-- Explicitly yank to system clipboard (highlighted and entire row)
+vim.keymap.set({ 'n', 'v' }, '<leader>y', [["+y]])
+vim.keymap.set('n', '<leader>Y', [["+Y]])
+
+-- Toggle diagnostics
+local diagnostics_active = true
+
+vim.keymap.set('n', '<leader>do', function()
+  diagnostics_active = not diagnostics_active
+
+  if diagnostics_active then
+    vim.diagnostic.enable(true)
+  else
+    vim.diagnostic.enable(false)
+  end
+end)
+
+-- Diagnostic keymaps
+vim.keymap.set('n', '[d', function()
+  vim.diagnostic.jump { count = -1, float = true }
+end, { desc = 'Go to previous diagnostic message' })
+
+vim.keymap.set('n', ']d', function()
+  vim.diagnostic.jump { count = 1, float = true }
+end, { desc = 'Go to next diagnostic message' })
+
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float, { desc = 'Open diagnostic' })
+
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostics list' })
+
+-- Save and load session
+vim.keymap.set('n', '<leader>ss', ':mksession! .session.vim<CR>', { noremap = true, silent = false })
+vim.keymap.set('n', '<leader>sl', ':source .session.vim<CR>', { noremap = true, silent = false })
