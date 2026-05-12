@@ -231,6 +231,10 @@ return {
             },
           },
         },
+        -- use oxfmt for formatting instead
+        format = {
+          enable = false,
+        },
       },
 
       --------------------------------------------------------------
@@ -293,6 +297,9 @@ return {
       -- Go formatter
       "gofumpt",
       "goimports",
+
+      -- JS/TS formatter
+      "oxfmt",
     })
 
     require("mason-tool-installer").setup({
