@@ -25,6 +25,7 @@ return {
         'json',
         'java',
         'groovy',
+        'mdx',
         'go',
         'gitignore',
         'yaml',
