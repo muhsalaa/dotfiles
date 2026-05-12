@@ -16,34 +16,13 @@ rtp:prepend(lazypath)
 
 
 require('lazy').setup({
-{
-    "nvim-neo-tree/neo-tree.nvim",
-    branch = "v3.x",
-    dependencies = {
-      "nvim-lua/plenary.nvim",
-      "MunifTanjim/nui.nvim",
-      "nvim-tree/nvim-web-devicons", -- optional, but recommended
-    },
-    lazy = false, -- neo-tree will lazily load itself
+  require 'plugins.neotree',
+  require 'plugins.bufferline',
+  require 'plugins.colortheme',
+  require 'plugins.lualine',
+  require 'plugins.treesitter',
+  require 'plugins.telescope',
+  {
+    "moll/vim-bbye"
   },
-  {
-  "moll/vim-bbye"
-},
-  {
-	"shaunsingh/nord.nvim",
-	lazy = false,
-	priority = 1000,
-	config = function()
-	-- Example config in lua
-	vim.g.nord_contrast = true
-	vim.g.nord_borders = false
-	vim.g.nord_disable_background = false
-	vim.g.nord_italic = false
-	vim.g.nord_uniform_diff_background = true
-	vim.g.nord_bold = false
-
-	-- Load the colorscheme
-	require('nord').set()
-end
-  }
 })
