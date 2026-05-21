@@ -30,6 +30,7 @@ require("lazy").setup({
 	require("plugins.indent-blankline"),
 	require("plugins.alpha"),
 	require("plugins.misc"),
+	require("plugins.hardtime"),
 	{
 		"moll/vim-bbye",
 	},
