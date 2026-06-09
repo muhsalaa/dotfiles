@@ -44,6 +44,9 @@ return {
         return
       end
 
+      -- trim trailing whitespace before formatting
+      vim.cmd([[%s/\s\+$//e]])
+
       return {
         timeout_ms = 2000,
         lsp_format = "fallback",

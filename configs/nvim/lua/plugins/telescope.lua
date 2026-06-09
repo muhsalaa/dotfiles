@@ -46,8 +46,14 @@ return {
       },
       pickers = {
         find_files = {
-          file_ignore_patterns = { 'node_modules', '%.git', '%.venv' },
+          file_ignore_patterns = { 'node_modules', '%.git', '%.venv', 'bun%.lock', 'package%-lock%.json', 'yarn%.lock', 'pnpm%-lock%.yaml' },
           hidden = true,
+        },
+        live_grep = {
+          file_ignore_patterns = { 'node_modules', '%.git', '%.venv', 'bun%.lock', 'package%-lock%.json', 'yarn%.lock', 'pnpm%-lock%.yaml' },
+          additional_args = function(_)
+            return { '--hidden' }
+          end,
         },
         buffers = {
           initial_mode = 'normal',
@@ -67,12 +73,7 @@ return {
           initial_mode = 'normal',
         },
       },
-      live_grep = {
-        file_ignore_patterns = { 'node_modules', '.git', '.venv' },
-        additional_args = function(_)
-          return { '--hidden' }
-        end,
-      },
+
       path_display = {
         filename_first = {
           reverse_directories = true,
