@@ -29,9 +29,13 @@ return {
 		opts = {},
 	},
 	{
-		"m4xshen/autoclose.nvim",
-		event = "VeryLazy",
-		opts = {},
+		"windwp/nvim-autopairs",
+		event = "InsertEnter",
+		opts = {
+			check_ts = true,
+			map_cr = true,
+			map_bs = true,
+		},
 	},
 	{
 		"windwp/nvim-ts-autotag",

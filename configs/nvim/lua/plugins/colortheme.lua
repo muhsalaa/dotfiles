@@ -9,6 +9,8 @@ return {
     config = function(_, opts)
       require("tokyonight").setup(opts)
       vim.cmd.colorscheme("tokyonight")
+      -- Pale pink visual mode highlight for dark mode
+      vim.api.nvim_set_hl(0, "Visual", { bg = "#45303a" })
     end,
 }
 --   {
