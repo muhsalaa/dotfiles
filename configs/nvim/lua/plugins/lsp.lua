@@ -281,6 +281,27 @@ return {
       dockerls = {},
       docker_compose_language_service = {},
       html = {},
+
+      --------------------------------------------------------------
+      -- Tailwind CSS
+      --------------------------------------------------------------
+
+      tailwindcss = {
+        filetypes = {
+          "html", "css", "scss", "javascript", "javascriptreact",
+          "typescript", "typescriptreact", "astro", "vue", "svelte",
+          "mdx", "heex", "elixir", "templ",
+        },
+        settings = {
+          tailwindCSS = {
+            classAttributes = { "class", "className", "ngClass", "class:list" },
+            includeLanguages = {
+              typescript = "typescriptreact",
+              javascript = "javascriptreact",
+            },
+          },
+        },
+      },
     }
 
     ----------------------------------------------------------------

@@ -38,9 +38,8 @@ return {
 			},
 
 			window = {
-				position = "float",
-				width = 60,
-				height = 30,
+				position = "right",
+				width = 30,
 
 				mappings = {
 					["l"] = "open",
