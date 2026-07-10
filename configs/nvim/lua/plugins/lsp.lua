@@ -91,7 +91,7 @@ return {
         ----------------------------------------------------------------
 
         -- Hover docs
-        map("K", vim.lsp.buf.hover, "Hover Documentation")
+        map("K", function() vim.lsp.buf.hover({ border = "rounded" }) end, "Hover Documentation")
 
         -- Go to declaration
         map("gD", vim.lsp.buf.declaration, "[G]oto [D]eclaration")
@@ -177,6 +177,20 @@ return {
       capabilities,
       require("cmp_nvim_lsp").default_capabilities()
     )
+
+    -- Round borders for LSP hover + signature help
+    vim.lsp.config("*", {
+      handlers = {
+        ["textDocument/hover"] = vim.lsp.with(
+          vim.lsp.handlers.hover,
+          { border = "rounded" }
+        ),
+        ["textDocument/signatureHelp"] = vim.lsp.with(
+          vim.lsp.handlers.signature_help,
+          { border = "rounded" }
+        ),
+      },
+    })
 
     ----------------------------------------------------------------
     -- LSP SERVERS

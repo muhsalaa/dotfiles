@@ -117,7 +117,10 @@ return {
 
 			window = {
 				completion = cmp.config.window.bordered(),
-				documentation = cmp.config.window.bordered(),
+				documentation = {
+					border = "rounded",
+					winhighlight = "Normal:CmpDocNormal,FloatBorder:CmpDocBorder",
+				},
 			},
 
 			--------------------------------------------------------------

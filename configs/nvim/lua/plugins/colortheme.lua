@@ -11,6 +11,13 @@ return {
       vim.cmd.colorscheme("tokyonight")
       -- Pale pink visual mode highlight for dark mode
       vim.api.nvim_set_hl(0, "Visual", { bg = "#45303a" })
+
+      -- CMP documentation popup — non-transparent bg so Tailwind CSS docs are readable
+      vim.api.nvim_set_hl(0, "CmpDocNormal", { bg = "#1e2030", fg = "#c0caf5" })
+      vim.api.nvim_set_hl(0, "CmpDocBorder", { bg = "#1e2030", fg = "#f72585" })
+
+      -- Global floating window borders — fuchsia everywhere
+      vim.api.nvim_set_hl(0, "FloatBorder", { fg = "#f72585" })
     end,
 }
 --   {

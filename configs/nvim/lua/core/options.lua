@@ -99,3 +99,11 @@ vim.opt.guicursor = {
 vim.opt.foldmethod = "expr" -- Use expression for folding
 vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()" -- Use treesitter for folding
 vim.opt.foldlevel = 99 -- Keep all folds open by default
+
+-- Diagnostic float border
+vim.diagnostic.config({
+  float = { border = "rounded" },
+  underline = true,
+  virtual_text = false,
+  signs = true,
+})
