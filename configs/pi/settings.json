@@ -1,0 +1,20 @@
+{
+  "lastChangelogVersion": "0.81.1",
+  "packages": [
+    "npm:pi-prayer-times@latest",
+    "npm:@juicesharp/rpiv-ask-user-question",
+    "npm:pi-subagents",
+    "npm:pi-web-access",
+    "npm:pi-dynamic-workflows",
+    "npm:pi-rtk-optimizer",
+    "npm:pi-mcp-adapter",
+    "npm:@ff-labs/pi-fff",
+    "npm:pi-thinking-steps",
+    "npm:pi-commandcode-provider"
+  ],
+  "defaultProvider": "commandcode",
+  "defaultModel": "deepseek/deepseek-v4-flash",
+  "defaultThinkingLevel": "high",
+  "hideThinkingBlock": true,
+  "theme": "dark"
+}
