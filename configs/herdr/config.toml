@@ -4,4 +4,10 @@ name = "dracula"
 
 auto_switch = false
 [ui]
+sidebar_width = 14
+sidebar_min_width = 16
+sidebar_max_width = 22
 show_agent_labels_on_pane_borders = true
+
+[experimental]
+kitty_graphics = true
