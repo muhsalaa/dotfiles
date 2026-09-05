@@ -148,6 +148,11 @@ return {
 					select = true,
 				}),
 
+				-- Shift+Enter = force newline
+				["<S-CR>"] = function(fallback)
+					fallback()
+				end,
+
 				-- Manually trigger completion menu
 				["<C-Space>"] = cmp.mapping.complete({}),
 
@@ -172,12 +177,12 @@ return {
 				end, { "i", "s" }),
 
 				------------------------------------------------------------
-				-- Tab completion
+				-- Tab = accept suggestion / next item
 				------------------------------------------------------------
 
 				["<Tab>"] = cmp.mapping(function(fallback)
 					if cmp.visible() then
-						cmp.select_next_item()
+						cmp.confirm({ select = true })
 					elseif luasnip.expand_or_locally_jumpable() then
 						luasnip.expand_or_jump()
 					else

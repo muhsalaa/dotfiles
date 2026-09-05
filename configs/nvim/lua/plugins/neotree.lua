@@ -2,7 +2,7 @@ return {
 	"nvim-neo-tree/neo-tree.nvim",
 	branch = "v3.x",
 
-	lazy = false,
+	lazy = true,
 
 	keys = {
 		{
@@ -34,12 +34,14 @@ return {
 
 				filtered_items = {
 					hide_dotfiles = false,
+					hide_gitignored = false,
 				},
 			},
 
 			window = {
 				position = "right",
 				width = 30,
+				focus = false,
 
 				mappings = {
 					["l"] = "open",
