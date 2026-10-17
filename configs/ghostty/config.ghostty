@@ -1,4 +1,4 @@
 theme = tokyonight
-background-opacity = 0.95
-background-blur-radius = 50
+background-opacity = 0.975
+background-blur-radius = 65
 gtk-titlebar = false
