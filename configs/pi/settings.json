@@ -1,20 +1,110 @@
 {
-  "lastChangelogVersion": "0.81.1",
+  "lastChangelogVersion": "1.4.0",
   "packages": [
     "npm:pi-prayer-times@latest",
-    "npm:@juicesharp/rpiv-ask-user-question",
     "npm:pi-subagents",
     "npm:pi-web-access",
-    "npm:pi-dynamic-workflows",
     "npm:pi-rtk-optimizer",
-    "npm:pi-mcp-adapter",
     "npm:@ff-labs/pi-fff",
-    "npm:pi-thinking-steps",
-    "npm:pi-commandcode-provider"
+    "git:github.com/DietrichGebert/ponytail",
+    "npm:context-mode",
+    "https://github.com/gsanhueza/pi-token-speed",
+    "npm:pi-mermaid",
+    "npm:@narumitw/pi-btw"
   ],
-  "defaultProvider": "commandcode",
-  "defaultModel": "deepseek/deepseek-v4-flash",
-  "defaultThinkingLevel": "high",
+  "defaultProvider": "opencode-go",
+  "defaultModel": "deepseek-v4.1-flash",
+  "defaultThinkingLevel": "max",
   "hideThinkingBlock": true,
-  "theme": "dark"
+  "steeringMode": "all",
+  "followUpMode": "all",
+  "theme": "dark",
+  "subagents": {
+    "agentOverrides": {
+      "worker": {
+        "model": "opencode-go/deepseek-v4.1-flash",
+        "tools": [
+          "read",
+          "grep",
+          "find",
+          "ls",
+          "bash",
+          "write",
+          "edit",
+          "fffind",
+          "ffgrep",
+          "contact_supervisor"
+        ],
+        "thinking": "high",
+        "inheritSkills": true
+      },
+      "reviewer": {
+        "model": "opencode-go/deepseek-v4.1-flash",
+        "tools": [
+          "read",
+          "grep",
+          "find",
+          "ls",
+          "bash",
+          "write",
+          "edit",
+          "intercom",
+          "fffind",
+          "ffgrep"
+        ],
+        "thinking": "max",
+        "inheritSkills": true
+      },
+      "scout": {
+        "model": "opencode-go/deepseek-v4.1-flash",
+        "tools": [
+          "read",
+          "grep",
+          "find",
+          "ls",
+          "bash",
+          "write",
+          "intercom",
+          "fffind",
+          "ffgrep"
+        ],
+        "thinking": "low",
+        "inheritSkills": true
+      },
+      "researcher": {
+        "model": "opencode-go/deepseek-v4.1-flash",
+        "thinking": "high",
+        "inheritSkills": true,
+        "tools": [
+          "read",
+          "write",
+          "web_search",
+          "fetch_content",
+          "get_search_content",
+          "source_check",
+          "contact_supervisor"
+        ],
+        "extensions": [
+          "/home/muhsalaa/.pi/agent/npm/node_modules/pi-web-access/index.ts"
+        ]
+      },
+      "evidence-auditor": {
+        "model": "opencode-go/deepseek-v4.1-flash",
+        "tools": [
+          "read",
+          "web_search",
+          "fetch_content",
+          "get_search_content",
+          "source_check"
+        ],
+        "extensions": [
+          "/home/muhsalaa/.pi/agent/npm/node_modules/pi-web-access/index.ts"
+        ]
+      },
+      "oracle": {
+        "model": "opencode-go/deepseek-v4.1-flash",
+        "inheritSkills": true
+      }
+    }
+  }
 }

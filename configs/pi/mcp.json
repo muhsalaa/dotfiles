@@ -2,14 +2,33 @@
   "mcpServers": {
     "chrome-devtools": {
       "command": "npx",
-      "args": ["-y", "chrome-devtools-mcp@latest"]
+      "args": [
+        "-y",
+        "chrome-devtools-mcp@latest"
+      ]
     },
     "astro-docs": {
       "url": "https://mcp.docs.astro.build/mcp"
     },
     "playwright": {
       "command": "npx",
-      "args": ["@playwright/mcp@latest"]
+      "args": [
+        "@playwright/mcp@latest"
+      ]
+    },
+    "radius": {
+      "url": "https://radius.pi.dev/mcp",
+      "auth": {
+        "provider": "radius"
+      }
+    },
+    "shadcn": {
+      "command": "npx",
+      "args": [
+        "--yes",
+        "shadcn@4.10.0",
+        "mcp"
+      ]
     }
   }
 }
